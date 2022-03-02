@@ -244,8 +244,6 @@
         <div id="code-example1" style="display:none">
     // JavaScript Code Example:
 
-    var uiSelectFruits
-
     var itemList = [
         {id: "0", name: "(unselected)"},
         {id: "1", name: "Banana"},
@@ -262,6 +260,8 @@
         {id: "12", name: "Coconut"}
     ]
 
+    var uiSelectFruits
+
     function start() {
 
         uiSelectFruits = createSelectText()
@@ -271,7 +271,7 @@
         that.center()
     }
 
-    function printSelectedIndex(index) {
+    function printSelectedIndex(self, index) {
 
         print("Selected item index: " + index)
     }

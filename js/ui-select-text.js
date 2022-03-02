@@ -128,7 +128,7 @@ SelectText.createCopy = function(left = 0,
                 ui.selectedIndex = index
                 ui.txtName.text = ui.itemList[ui.selectedIndex].name
 
-                ui.onChangeFunc(ui.selectedIndex)
+                ui.onChangeFunc(ui, ui.selectedIndex)
 
             } else {
                 ui.selectedIndex = -1
