@@ -7,6 +7,10 @@ Simple and fully customizable user interface component. Design for mobile app de
 
 ![alt tag](https://bug7a.github.io/ui-select-text.js/select-text-preview.png)
 
+### Live Preview
+
+https://bug7a.github.io/ui-select-text.js/
+
 ### Contact information
 
 Started Date: 22 February 2022<br>
