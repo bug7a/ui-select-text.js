@@ -1,7 +1,7 @@
 # ui-select-text.js
 Simple and fully customizable user interface component (Select, ComboBox). Design for mobile app development on Apache Cordova framework. Developed with JavaScript and basic.js technique.
 
-### Some of the Sample Projects
+### ScreenShots
 
 ![alt tag](https://bug7a.github.io/ui-select-text.js/select-text-preview.png)
 
