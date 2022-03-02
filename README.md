@@ -3,10 +3,7 @@ Simple and fully customizable user interface component (Select, ComboBox). Desig
 
 ### Some of the Sample Projects
 
-![alt tag](https://bug7a.github.io/ui-select-text.js/select-text1.png)
-![alt tag](https://bug7a.github.io/ui-select-text.js/select-text2.png)
-![alt tag](https://bug7a.github.io/ui-select-text.js/select-text3.png)
-![alt tag](https://bug7a.github.io/ui-select-text.js/select-text4.png)
+![alt tag](https://bug7a.github.io/ui-select-text.js/select-text-preview.png)
 
 ### Contact information
 
