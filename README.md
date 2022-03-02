@@ -1,7 +1,7 @@
 # ui-select-text.js (Select, ComboBox)
 Simple and fully customizable user interface component. Design for mobile app development on Apache Cordova framework. Developed with JavaScript and basic.js technique.
 
-- Plaftorms: iOS, Android
+- Plaftorms: iOS, Android<br><br>
 
 ### ScreenShots
 
