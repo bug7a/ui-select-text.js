@@ -1,0 +1,53 @@
+UI Select Text HandBook
+
+createSelectText() : SelectText or SelectText.createCopy() : SelectText
+- Yeni bir nesne oluşturur.
+
+object.setItems(itemList: Array)
+- Dizinin içindeki elemanları, ui nesnesinin içine gösterir.
+-- Önceden eklenmişler kayıtlar temizlenir.
+-- Dizinin bir kopyası oluşturulur. Orjinal dizi ile bağlantılı olmaz.
+
+object.setSelectedIndex(index: integer)
+- Sıra numarasına göre, elemanı seçili hale getirir.
+-- İlk elemanın sıra numarası 0'dır.
+
+object.getSelectedIndex() : integer
+- Seçili elemanın, sıra numarasını verir.
+-- Eğer hiç eleman yok ise, seçili elemanın sıra numarası -1'dir.
+
+object.getIndexById(id: string) : integer
+- Id'ye göre, elemanın sıra numarasını verir.
+usage:
+object.setSelectedIndex(that.getIndexById("id"))
+
+object.onChange(func: function)
+- Seçim değiştiğinde çalıştırılacak fonksiyon.
+- fonksiyona, iki parametre gönderilir: Nesnenin kendisi ve seçili elemanın sıra numarası.
+-- Eğer that.setItems() çağırılmadan önce kullanılır ise, ilk aktarımda çağırılır.
+
+object.setAutoResize(value: boolean)
+- Nesnenin genişliğini, seçili metne göre otomatik olarak ayarlar.
+
+
+GLOBAL METHODS:
+
+SelectText.setSelectedColor(color: string)
+- Seçili elemanın rengini ayarlar.
+
+SelectText.setSearchInfoText(info: string)
+- Arama bilgisi metnini ayarlar.
+
+SelectText.setUIBackgroundColor(color: string)
+- Arka plan rengini ayarlar.
+
+
+---
+
+
+AUTHOR:
+Bugra Ozden <bugra.ozden@gmail.com>
+
+https://bug7a.github.io/ui-select-text.js/
+
+

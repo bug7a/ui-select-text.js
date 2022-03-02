@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <title>ui-select.text.js</title>
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+        <!-- LIBRARY FILES -->
+        <link rel="stylesheet" type="text/css" href="library/basic.min.css">
+        <script src="library/basic.min.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="js/ui-select-text.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/ui-click-effect.js" type="text/javascript" charset="utf-8"></script>
+
+        <style>
+
+        body {
+            overflow: hidden;
+        }
+
+        </style>
+
+        <script>
+
+        var ORIGINAL_WIDTH = 500
+
+        var themeList = [
+            {id:"default", name:"Default"},
+            {id:"starwars", name:"StarWars"},
+            {id:"supernova", name:"Supernova"},
+            {id:"metro", name:"Metro"},
+            {id:"flatty", name:"Flatty"},
+            {id:"material", name:"Material"},
+            {id:"1990s", name:"1990s"}
+        ]
+
+        var primaryColorList = [
+            {id:"red", name:"Red"},
+            {id:"green", name:"Green"},
+            {id:"blue", name:"Blue"},
+            {id:"yellow", name:"Yellow"},
+            {id:"black", name:"Black"},
+            {id:"white", name:"White"},
+            {id:"gray", name:"Gray"}
+        ]
+
+        var updateStatusList = [
+            {id:"auto", name:"Auto"},
+            {id:"ask-to-me", name:"Ask to me"},
+            {id:"off", name:"Off"}
+        ]
+
+        var notificationStatusList = [
+            {id:"on", name:"On"},
+            {id:"friends-only", name:"Friends only"},
+            {id:"off", name:"Off"},
+            {id:"dont-disturb-1-hour", name:"Dont disturb 1 hour"},
+            {id:"dont-disturb-24-hours", name:"Dont disturb 24 hours"}
+        ]
+
+        var soundStatusList = [
+            {id: "enable", name: "Enable"},
+            {id: "mute", name: "Mute"},
+            {id: "mute-for-a-hour", name: "Mute for a hour"}
+        ]
+
+        var languageList = [
+            {id:"en", name:"English"},
+            {id:"es", name:"Spanish"},
+            {id:"fr", name:"French"},
+            {id:"tr", name:"Türkçe"}
+        ]
+
+        var objectTypeList = [
+            {id:"classical", name:"Classical"},
+            {id:"minimal", name:"Minimal"},
+            {id:"functional", name:"Functional"},
+            {id:"exaggerated", name:"Exaggerated"}
+        ]
+
+        var boxView
+
+        // will call on load
+        var start = function() {
+
+            page.fit(ORIGINAL_WIDTH, 1024)
+            page.color = "black"
+
+            clickEffect.create()
+
+            // BOX: Usable screen on the mobile device
+            boxView = createBox(0, 0, ORIGINAL_WIDTH, page.height)
+            that.color = "white"
+            that.scrollY = 1
+
+            // Global settings
+            SelectText.setSelectedColor("#CADAE0")
+            SelectText.setSearchInfoText("Filter")
+            SelectText.setUIBackgroundColor("white")
+
+            // Objects
+            boxView.b1 = createTitle("Settings")
+
+            boxView.b2 = createSubTitle("APPEARANCE")
+            boxView.b3 = createSelectTextWithTitle("Theme", themeList, printSelectedName)
+            boxView.b4 = createSelectTextWithTitle("Primary Color", primaryColorList, printSelectedName)
+            
+            boxView.b5 = createSubTitle("SYSTEM")
+            boxView.b6 = createSelectTextWithTitle("Update", updateStatusList, printSelectedName)
+            
+            boxView.b7 = createSelectTextWithTitle("Notifications", notificationStatusList, printSelectedName)
+            boxView.b8 = createSelectTextWithTitle("Sound", soundStatusList, printSelectedName)
+            boxView.b9 = createSelectTextWithTitle("Language", languageList, printSelectedName)
+            
+            boxView.b10 = createSubTitle("OTHERS")
+            boxView.b11 = createSelectTextWithTitle("objectType", objectTypeList, printSelectedName)
+
+            boxView.b3.uiSelectText.setSelectedIndex(1)
+            boxView.b4.uiSelectText.setSelectedIndex(5)
+            boxView.b6.uiSelectText.setSelectedIndex(1)
+            boxView.b7.uiSelectText.setSelectedIndex(1)
+
+            page.onResize(pageResized)
+        }
+
+        var pageResized = function() {
+
+            page.fit(ORIGINAL_WIDTH, 1024)
+            boxView.height = page.height
+        }
+
+        var printSelectedName = function(self, index) {
+
+            print("Selected value: " + self.itemList[index].name)
+        }
+
+        var createTitle = function(title) {
+
+            // BOX: object container
+            var box = createBox(0, 0, ORIGINAL_WIDTH, 110)
+            that.color = "whitesmoke"
+            that.borderColor = "gray"
+            that.element.style.borderBottomWidth = "1px"
+            that.element.style.position = "relative"
+            
+            // LABEL: object title text
+            box.lblTitle = createLabel(0, 0, ORIGINAL_WIDTH)
+            that.text = title
+            that.bottom = 20
+            that.fontSize = 24
+            that.element.style.fontFamily = "opensans-bold"
+            that.textAlign = "center"
+
+            makeBasicObject(box)
+
+            return box
+        }
+
+        var createSubTitle = function(title) {
+
+            // BOX: object container
+            var box = createBox(0, 0, ORIGINAL_WIDTH, 90)
+            that.color = "white"
+            that.borderColor = "lightgray"
+            that.element.style.borderBottomWidth = "1px"
+            that.element.style.position = "relative"
+            
+            // LABEL: object title text
+            box.lblTitle = createLabel(20, 50, "auto")
+            that.text = title
+            that.fontSize = 18
+            that.element.style.fontFamily = "opensans-bold"
+
+            makeBasicObject(box)
+
+            return box
+        }
+
+        var createSelectTextWithTitle = function(title, list, func) {
+
+            // BOX: object container
+            var box = createBox(0, 0, ORIGINAL_WIDTH, 70)
+            that.color = "white"
+            that.borderColor = "lightgray"
+            that.element.style.borderBottomWidth = "1px"
+            that.element.style.position = "relative"
+            
+            // LABEL: object title text
+            box.lblTitle = createLabel(20, 22, "auto")
+            that.text = title
+            that.fontSize = 20
+
+            // OBJECT: Select text
+            box.uiSelectText = createSelectText()
+            that.right = 10
+            that.top = 10
+            that.setAutoResize(1)
+            that.onChange(func)
+            that.setItems(list)
+            //that.color = "whitesmoke"
+            //that.boxMask.element.style.background = "linear-gradient(to right, #FFFFFF00, lightgray)"
+
+            makeBasicObject(box)
+
+            return box
+        }
+
+        </script>
+
+    </head>
+    <body></body>
+</html>
