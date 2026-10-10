@@ -10,6 +10,8 @@ Simple and fully customizable user interface component. Design for mobile app de
 ### Live Preview
 
 https://bug7a.github.io/ui-select-text.js/
+
+More components and app templates: [https://github.com/bug7a/js-components](https://github.com/bug7a/js-components)
 <br /><br />
 ### Contact information
 
